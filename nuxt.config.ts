@@ -1,0 +1,33 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  compatibilityDate: '2024-11-01',
+  devtools: { enabled: true },
+
+  // App configuration
+  app: {
+    head: {
+      title: 'Appointment Scheduler',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      ],
+    },
+  },
+
+  modules: [
+    '@nuxtjs/tailwindcss',
+    ['@vee-validate/nuxt', { autoImports: true }],
+  ],
+  tailwindcss: {
+    exposeConfig: true,
+    viewer: true,
+  },
+
+  // Runtime config with environment variables
+  runtimeConfig: {
+    public: {
+      apiBase: 'http://staging.ehjzny.com/api/v1',
+      appId: 'h66w3DSEcsKlu8ReaclX',
+    },
+  },
+});
