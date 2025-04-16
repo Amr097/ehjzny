@@ -1,6 +1,8 @@
 # 🩺 Ehjzni App
 
-A **Nuxt 3** powered medical reservation web application that facilitates the appointment booking process for patients. Users can browse available doctors, select appointment types, view time slots, and book appointments.
+A **Nuxt 3** medical reservation web application that facilitates the appointment booking process for patients. Users can browse available doctors, select appointment types, view time slots, and book appointments.
+
+🔗 **[View Demo on CodeSandbox](https://codesandbox.io/p/github/Amr097/ehjzny/main)** ✨
 
 ---
 
