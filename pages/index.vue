@@ -1,4 +1,3 @@
-<!-- pages/resource-selection.vue -->
 <template>
   <SelectResource
     :resources
@@ -31,11 +30,13 @@ const config = useRuntimeConfig();
 
 const AVAILBLE_RESOURCES_ENDPOINT = 'availability/resources';
 
-const appointmentsRef = ref(null);
-const timeRef = ref(null);
+const appointmentsRef = ref(null); // Ref for SelectAppointments component methods
+const timeRef = ref(null); // Ref for SelectTime component methods
 
+// Fetch APIs composable
 const { fetchAvailableTypes, fetchAvailableTimes } = useBookingApi();
 
+//Feature state composable
 const {
   selectedDoctor,
   selectedAppointmentType,
@@ -45,6 +46,7 @@ const {
   handleTimeSelection,
 } = useBookingState(appointmentsRef, timeRef);
 
+//Fetch resources on page load
 const {
   data: resources,
   error,
@@ -57,6 +59,7 @@ const {
   },
 });
 
+//Fetch appointment types
 const {
   data: appointmentTypes,
   status: appointmentTypesStatus,
@@ -72,6 +75,7 @@ const {
   }
 );
 
+//Fetch appointment available times
 const {
   data: appointmentTime,
   status: appointmentTimeStatus,
@@ -92,10 +96,12 @@ const {
 );
 
 const onResourceSelection = async ({ resourceId }) => {
+  //Fetch data if user selects new option
   if (handleResourceSelection(resourceId)) appointmentsExecute();
 };
 
 const onAppointmentTypeSelected = async (appointment) => {
+  //Fetch data if user selects new option
   if (handleAppointmentTypeSelection(appointment)) appointmentTimeExecute();
 };
 </script>

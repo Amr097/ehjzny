@@ -19,19 +19,24 @@ export function useBookingState(appointmentsRef, timeRef) {
   };
 
   const handleResourceSelection = (resourceId) => {
+    //Don't call api again if value has not change
     if (selectedDoctor.value === resourceId) return;
 
     selectedDoctor.value = resourceId;
 
+    //Reset form values on new api calls
     if (timeRef.value) resetAppointmentType();
 
     return { resourceId };
   };
 
   const handleAppointmentTypeSelection = (appointment) => {
+    //Don't call api again if value has not change
     if (selectedAppointmentType.value?.id === appointment.id) return;
 
     selectedAppointmentType.value = appointment;
+
+    //Reset form values on new api calls
     resetAppointmentTime();
 
     return { typeId: appointment.id, resourceId: selectedDoctor.value };
